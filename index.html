@@ -209,6 +209,48 @@ setTimeout("hidetrail()", displayduration*1000)
 </body>
 </html>
 
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiển Thị Địa Chỉ IP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #ip {
+            font-size: 24px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="ip">Đang lấy địa chỉ IP...</div>
+
+    <script>
+        // Lấy địa chỉ IP bằng API ipify
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('ip').textContent = `Địa chỉ IP của bạn: ${data.ip}`;
+            })
+            .catch(error => {
+                document.getElementById('ip').textContent = 'Không thể lấy địa chỉ IP.';
+                console.error(error);
+            });
+    </script>
+</body>
+</html>
+
       <script>
       function getIP(json) {
   alert("Your IP Address:" + json.ip);
