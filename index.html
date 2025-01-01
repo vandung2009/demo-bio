@@ -213,15 +213,20 @@ setTimeout("hidetrail()", displayduration*1000)
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Địa chỉ IP</title>
+    <title>Hiển Thị Địa Chỉ IP</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        fetch('https://api.ipify.org?format=json')
-            .then(res => res.json())
-            .then(data => document.getElementById("ip").innerText = "Địa chỉ IP: " + data.ip);
+        $(document).ready(function() {
+            // Sử dụng API ipify để lấy địa chỉ IP
+            $.getJSON('https://api.ipify.org?format=json', function(data) {
+                $('#ip-address').text('Địa chỉ IP của bạn là: ' + data.ip);
+            });
+        });
     </script>
 </head>
 <body>
-    <h1 id="ip">Đang tải...</h1>
+    <h1>Hiển Thị Địa Chỉ IP</h1>
+    <p id="ip-address">Đang tải...</p>
 </body>
 </html>
 
