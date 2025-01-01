@@ -222,7 +222,7 @@ setTimeout("hidetrail()", displayduration*1000)
             .then(response => response.json())
             .then(data => {
                 // Hiển thị địa chỉ IP lên trang
-                document.getElementById('ip').textContent = `Your IP: ${data.ip}`;
+                document.getElementById('ip').textContent = `IP: ${data.ip}`;
             })
             .catch(error => {
                 // Nếu có lỗi, thông báo lỗi
