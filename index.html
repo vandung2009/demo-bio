@@ -251,49 +251,6 @@ setTimeout("hidetrail()", displayduration*1000)
 </body>
 </html>
 
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hiển Thị Quốc Gia</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        #location {
-            font-size: 24px;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-        }
-    </style>
-</head>
-<body>
-    <div id="location">Đang lấy thông tin quốc gia...</div>
-
-    <script>
-        // Lấy thông tin quốc gia bằng API ipinfo.io
-        fetch('https://ipinfo.io?token=YOUR_API_TOKEN')
-            .then(response => response.json())
-            .then(data => {
-                const country = data.country;
-                document.getElementById('location').textContent = `Quốc gia của bạn: ${country}`;
-            })
-            .catch(error => {
-                document.getElementById('location').textContent = 'Không thể lấy thông tin quốc gia.';
-                console.error(error);
-            });
-    </script>
-</body>
-</html>
-
       <script>
       function getIP(json) {
   alert("Your IP Address:" + json.ip);
