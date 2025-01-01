@@ -150,7 +150,52 @@ setTimeout("hidetrail()", displayduration*1000)
       
       <audio controls> <source src="https://files.catbox.moe/a2m93i"> 
                             </audio>
-     
+     <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FPS Display</title>
+    <style>
+        #fps {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div id="fps">FPS: 0</div>
+    <script>
+        let lastTime = 0;
+        let fps = 0;
+        let frameCount = 0;
+
+        // Hàm tính FPS
+        function calculateFPS(timestamp) {
+            if (lastTime) {
+                let deltaTime = timestamp - lastTime;
+                frameCount++;
+                if (deltaTime >= 1000) {
+                    fps = frameCount;
+                    frameCount = 0;
+                    lastTime = timestamp;
+                    document.getElementById('fps').textContent = `FPS: ${fps}`;
+                }
+            } else {
+                lastTime = timestamp;
+            }
+            requestAnimationFrame(calculateFPS);
+        }
+
+        // Bắt đầu tính FPS
+        requestAnimationFrame(calculateFPS);
+    </script>
+    
       <script>
       function getIP(json) {
   alert("Your IP Address:" + json.ip);
