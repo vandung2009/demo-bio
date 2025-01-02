@@ -269,7 +269,82 @@ setTimeout("hidetrail()", displayduration*1000)
     </script>
 </body>
 </html>
-                  
+      
+       <!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biểu Mẫu Phản Hồi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 300px;
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-container input[type="email"], .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Phản Hồi Qua Email</h2>
+        <form id="feedbackForm" action="https://formspree.io/f/mayalplb" method="POST">
+            <label for="email">Địa chỉ Email:</label>
+            <input type="email" id="email" name="_replyto" placeholder="Nhập email của bạn" required>
+
+            <label for="message">Phản hồi của bạn:</label>
+            <textarea id="message" name="message" rows="4" placeholder="Viết phản hồi của bạn ở đây..." required></textarea>
+
+            <button type="submit">Gửi Phản Hồi</button>
+        </form>
+    </div>
+
+    <script>
+        // Mã JavaScript để xử lý gửi email hoặc thông báo nếu có lỗi
+        document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Ngừng hành động mặc định (gửi form)
+            alert("Phản hồi đã được gửi thành công! Cảm ơn bạn.");
+            // Sau khi người dùng gửi biểu mẫu, bạn có thể thêm mã xử lý như gọi API gửi email
+        });
+    </script>
+</body>
+</html>           
+                                          
       <script>
       function getIP(json) {
   alert("Your IP Address:" + json.ip);
